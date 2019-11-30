@@ -561,9 +561,19 @@ namespace Attendance
                                     if (drAttd["ConsIN"] != DBNull.Value && drAttd["ConsOut"] != DBNull.Value)
                                     {
                                         //TimeSpan t = Convert.ToDateTime(drAttd["ConsOut"]) - Convert.ToDateTime(drAttd["ConsIN"]);
-                                        string wrksql = "Select round( convert(float,DATEDIFF(MINUTE,'" + Convert.ToDateTime(drAttd["ConsIN"]).ToString("yyyy-MM-dd HH:mm:ss") + "','" + Convert.ToDateTime(drAttd["ConsOut"]).ToString("yyyy-MM-dd HH:mm:ss") + "'))/60 * 2,0)/2";
+                                        string wrksql = "Select convert(float,DATEDIFF(SECOND,'" + Convert.ToDateTime(drAttd["ConsIN"]).ToString("yyyy-MM-dd HH:mm:ss") + "','" + Convert.ToDateTime(drAttd["ConsOut"]).ToString("yyyy-MM-dd HH:mm:ss") + "'))";
+                                        double seconds = Convert.ToDouble(Utils.Helper.GetDescription(wrksql, Utils.Helper.constr));
+                                        wrksql = "SELECT CONVERT(varchar(5), DATEADD(ms, " + seconds.ToString()  +" * 1000, 0), 114)";
+                                        string eltime = Utils.Helper.GetDescription(wrksql, Utils.Helper.constr);
 
-                                        drAttd["ConsWrkHrs"] = Utils.Helper.GetDescription(wrksql, Utils.Helper.constr);
+                                        double hrs = Convert.ToDouble(eltime.Substring(0, 2));
+                                        double min = Convert.ToDouble(eltime.Substring(3, 2));
+                                        if(min > 50)
+                                        {
+                                            hrs = hrs + 1;
+                                        }
+
+                                        drAttd["ConsWrkHrs"] = hrs;
                                         drAttd["Status"] = "P";
 
                                     }
@@ -2043,7 +2053,13 @@ namespace Attendance
 
                     DateTime tOut = Convert.ToDateTime(drAttd["ConsOut"]);
                     //DateTime tIn = Convert.ToDateTime(drAttd["ConsInTime"]);
+                    
                     int tHour = (tOut - ShiftEnd).Hours;
+                    int tMin = (tOut - ShiftEnd).Minutes;
+
+                    if (tMin > 50)
+                        tHour += 1;
+
 
                     int ot = 0;
 
@@ -2126,16 +2142,25 @@ namespace Attendance
                         drAttd["CalcOvertime"] = 0;
                     }
                 }
-                else
+                else 
                 {
                     drAttd["ConsOverTime"] = 0;
                     drAttd["CalcOvertime"] = 0;
                 }
 
-                if (eWrkGrp == "CONT" && tShift == "OP")
+                if (eWrkGrp == "CONT" && tShift == "OP" )
                 {
-                    //new developement for breakfast/lunch/dinner cut over time hours
+                    
+                    //new developement for "Contractual man power -> mus
                     //PENDING 
+                    //if (Convert.ToDouble(drAttd["ConsWrkHrs"]) > 4
+                    //    && drAttd["Status"].ToString() == "P"
+                    //    && Convert.ToBoolean(drAttd["HalfDay"]) == true)
+                    
+                    //    drAttd["ConsOverTime"] = Convert.ToDouble(drAttd["ConsWrkHrs"]);
+                    
+
+
                 }
                
                 daAttdData.Update(dsAttdData, "AttdData");
