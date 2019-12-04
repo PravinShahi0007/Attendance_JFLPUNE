@@ -29,6 +29,10 @@
         private void InitializeComponent()
         {
             this.GrpMain = new System.Windows.Forms.GroupBox();
+            this.label15 = new System.Windows.Forms.Label();
+            this.txtBAAll = new DevExpress.XtraEditors.TextEdit();
+            this.label14 = new System.Windows.Forms.Label();
+            this.txtSplALL = new DevExpress.XtraEditors.TextEdit();
             this.label13 = new System.Windows.Forms.Label();
             this.txtBasic = new DevExpress.XtraEditors.TextEdit();
             this.txtWeekOff = new DevExpress.XtraEditors.ComboBoxEdit();
@@ -79,11 +83,10 @@
             this.btnCancel = new System.Windows.Forms.Button();
             this.btnDelete = new System.Windows.Forms.Button();
             this.btnUpdate = new System.Windows.Forms.Button();
-            this.label14 = new System.Windows.Forms.Label();
-            this.txtSplALL = new DevExpress.XtraEditors.TextEdit();
-            this.label15 = new System.Windows.Forms.Label();
-            this.txtBAAll = new DevExpress.XtraEditors.TextEdit();
+            this.label16 = new System.Windows.Forms.Label();
             this.GrpMain.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.txtBAAll.Properties)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.txtSplALL.Properties)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.txtBasic.Properties)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.txtWeekOff.Properties)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.chkActive.Properties)).BeginInit();
@@ -114,12 +117,11 @@
             ((System.ComponentModel.ISupportInitialize)(this.txtWrkGrpDesc.Properties)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.txtWrkGrpCode.Properties)).BeginInit();
             this.grpUserRights.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.txtSplALL.Properties)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.txtBAAll.Properties)).BeginInit();
             this.SuspendLayout();
             // 
             // GrpMain
             // 
+            this.GrpMain.Controls.Add(this.label16);
             this.GrpMain.Controls.Add(this.label15);
             this.GrpMain.Controls.Add(this.txtBAAll);
             this.GrpMain.Controls.Add(this.label14);
@@ -174,6 +176,42 @@
             this.GrpMain.TabIndex = 0;
             this.GrpMain.TabStop = false;
             // 
+            // label15
+            // 
+            this.label15.AutoSize = true;
+            this.label15.Location = new System.Drawing.Point(10, 294);
+            this.label15.Name = "label15";
+            this.label15.Size = new System.Drawing.Size(92, 14);
+            this.label15.TabIndex = 113;
+            this.label15.Text = "Cont. BA ALL. :";
+            // 
+            // txtBAAll
+            // 
+            this.txtBAAll.Location = new System.Drawing.Point(117, 292);
+            this.txtBAAll.Name = "txtBAAll";
+            this.txtBAAll.Properties.Mask.EditMask = "[+]?([0-9]*[.])?[0-9]+";
+            this.txtBAAll.Properties.Mask.MaskType = DevExpress.XtraEditors.Mask.MaskType.RegEx;
+            this.txtBAAll.Size = new System.Drawing.Size(100, 20);
+            this.txtBAAll.TabIndex = 112;
+            // 
+            // label14
+            // 
+            this.label14.AutoSize = true;
+            this.label14.Location = new System.Drawing.Point(10, 268);
+            this.label14.Name = "label14";
+            this.label14.Size = new System.Drawing.Size(109, 14);
+            this.label14.TabIndex = 111;
+            this.label14.Text = "Cont. Other ALL. :";
+            // 
+            // txtSplALL
+            // 
+            this.txtSplALL.Location = new System.Drawing.Point(117, 266);
+            this.txtSplALL.Name = "txtSplALL";
+            this.txtSplALL.Properties.Mask.EditMask = "[+]?([0-9]*[.])?[0-9]+";
+            this.txtSplALL.Properties.Mask.MaskType = DevExpress.XtraEditors.Mask.MaskType.RegEx;
+            this.txtSplALL.Size = new System.Drawing.Size(100, 20);
+            this.txtSplALL.TabIndex = 110;
+            // 
             // label13
             // 
             this.label13.AutoSize = true;
@@ -185,7 +223,7 @@
             // 
             // txtBasic
             // 
-            this.txtBasic.Location = new System.Drawing.Point(110, 240);
+            this.txtBasic.Location = new System.Drawing.Point(117, 240);
             this.txtBasic.Name = "txtBasic";
             this.txtBasic.Properties.Mask.EditMask = "[+]?([0-9]*[.])?[0-9]+";
             this.txtBasic.Properties.Mask.MaskType = DevExpress.XtraEditors.Mask.MaskType.RegEx;
@@ -765,41 +803,14 @@
             this.btnUpdate.UseVisualStyleBackColor = false;
             this.btnUpdate.Click += new System.EventHandler(this.btnUpdate_Click);
             // 
-            // label14
+            // label16
             // 
-            this.label14.AutoSize = true;
-            this.label14.Location = new System.Drawing.Point(10, 268);
-            this.label14.Name = "label14";
-            this.label14.Size = new System.Drawing.Size(93, 14);
-            this.label14.TabIndex = 111;
-            this.label14.Text = "Cont. Spl ALL. :";
-            // 
-            // txtSplALL
-            // 
-            this.txtSplALL.Location = new System.Drawing.Point(110, 266);
-            this.txtSplALL.Name = "txtSplALL";
-            this.txtSplALL.Properties.Mask.EditMask = "[+]?([0-9]*[.])?[0-9]+";
-            this.txtSplALL.Properties.Mask.MaskType = DevExpress.XtraEditors.Mask.MaskType.RegEx;
-            this.txtSplALL.Size = new System.Drawing.Size(100, 20);
-            this.txtSplALL.TabIndex = 110;
-            // 
-            // label15
-            // 
-            this.label15.AutoSize = true;
-            this.label15.Location = new System.Drawing.Point(10, 294);
-            this.label15.Name = "label15";
-            this.label15.Size = new System.Drawing.Size(92, 14);
-            this.label15.TabIndex = 113;
-            this.label15.Text = "Cont. BA ALL. :";
-            // 
-            // txtBAAll
-            // 
-            this.txtBAAll.Location = new System.Drawing.Point(110, 292);
-            this.txtBAAll.Name = "txtBAAll";
-            this.txtBAAll.Properties.Mask.EditMask = "[+]?([0-9]*[.])?[0-9]+";
-            this.txtBAAll.Properties.Mask.MaskType = DevExpress.XtraEditors.Mask.MaskType.RegEx;
-            this.txtBAAll.Size = new System.Drawing.Size(100, 20);
-            this.txtBAAll.TabIndex = 112;
+            this.label16.AutoSize = true;
+            this.label16.Location = new System.Drawing.Point(223, 295);
+            this.label16.Name = "label16";
+            this.label16.Size = new System.Drawing.Size(114, 14);
+            this.label16.TabIndex = 114;
+            this.label16.Text = "(N/A For JFL-PUNE)";
             // 
             // frmMastEmpBasicData
             // 
@@ -817,6 +828,8 @@
             this.KeyDown += new System.Windows.Forms.KeyEventHandler(this.frmMastEmpBasicData_KeyDown);
             this.GrpMain.ResumeLayout(false);
             this.GrpMain.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.txtBAAll.Properties)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.txtSplALL.Properties)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.txtBasic.Properties)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.txtWeekOff.Properties)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.chkActive.Properties)).EndInit();
@@ -847,8 +860,6 @@
             ((System.ComponentModel.ISupportInitialize)(this.txtWrkGrpDesc.Properties)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.txtWrkGrpCode.Properties)).EndInit();
             this.grpUserRights.ResumeLayout(false);
-            ((System.ComponentModel.ISupportInitialize)(this.txtSplALL.Properties)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.txtBAAll.Properties)).EndInit();
             this.ResumeLayout(false);
 
         }
@@ -910,5 +921,6 @@
         private DevExpress.XtraEditors.TextEdit txtBAAll;
         private System.Windows.Forms.Label label14;
         private DevExpress.XtraEditors.TextEdit txtSplALL;
+        private System.Windows.Forms.Label label16;
     }
 }
